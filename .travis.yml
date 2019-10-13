@@ -1,0 +1,9 @@
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: "Tests"
+      name: "unit"
+      script: |
+        docker-compose build
