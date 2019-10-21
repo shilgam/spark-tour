@@ -15,3 +15,10 @@
 1. Run bash interactive session
 
         docker-compose run --rm app bash
+
+
+### Run test suite
+
+1. Run unit tests:
+
+        docker-compose run --rm app sbt test
