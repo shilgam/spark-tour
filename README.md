@@ -26,3 +26,4 @@
 ## Additional info
 
 * [A Scala linter](https://atom.io/packages/linter-scalastyle) for Atom Linter using scalastyle
+* [Scalafmt code formatter](https://scalameta.org/scalafmt/)
