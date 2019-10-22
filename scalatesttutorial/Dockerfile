@@ -1,4 +1,4 @@
-FROM hseeberger/scala-sbt:8u151-2.12.4-1.1.0
+FROM hseeberger/scala-sbt:8u212_1.2.8_2.12.8
 
 ARG APP_PATH=/usr/src/app/scalatesttutorial
 WORKDIR $APP_PATH
