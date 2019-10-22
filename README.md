@@ -22,3 +22,7 @@
 1. Run unit tests:
 
         docker-compose run --rm app sbt test
+
+## Additional info
+
+* [A Scala linter](https://atom.io/packages/linter-scalastyle) for Atom Linter using scalastyle
