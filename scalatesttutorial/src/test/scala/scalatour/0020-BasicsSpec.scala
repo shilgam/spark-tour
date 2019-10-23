@@ -1,4 +1,4 @@
-import org.scalatest.{ FlatSpec, Matchers }
+import org.scalatest.{FlatSpec, Matchers}
 
 class BasicExampleSpec extends FlatSpec {
   "Functions" should "be definable as named and anonymous" in {
@@ -15,7 +15,8 @@ class BasicExampleSpec extends FlatSpec {
   }
 
   "Methods" should "be definable with multiple parameter list" in {
-    def addThenMultiply(x: Int, y: Int)(multiplier: Int): Int = (x + y) * multiplier
+    def addThenMultiply(x: Int, y: Int)(multiplier: Int): Int =
+      (x + y) * multiplier
 
     assert(addThenMultiply(1, 2)(3) === 9)
   }
@@ -61,7 +62,6 @@ class BasicExampleSpec extends FlatSpec {
 
     assert(newerId == newId + 1)
   }
-
 
   "Traits" should "be combinable and can have default implementation" in {
     trait Greeter {
