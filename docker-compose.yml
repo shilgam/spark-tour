@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   app:
-    build: ./scalatesttutorial
+    build: ./scalaTour
     # volumes:
     #   # sync source files
     #   - ./:/usr/src/app/
