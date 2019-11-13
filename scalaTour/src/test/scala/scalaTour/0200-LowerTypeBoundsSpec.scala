@@ -36,6 +36,7 @@ class LowerTypeBoundsExampleSpec extends FlatSpec {
 
     val africanSwallowList = ListNode[AfricanSwallow](AfricanSwallow(), Nil())
     val birdList: Node[Bird] = africanSwallowList
+
     /** Node[Bird] can be assigned the africanSwallowList but then accept EuropeanSwallow's
       */
     birdList.prepend(EuropeanSwallow())

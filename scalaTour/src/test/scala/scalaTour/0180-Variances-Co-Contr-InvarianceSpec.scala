@@ -39,6 +39,7 @@ class CovarianceExampleSpec extends FunSuite {
 
 class ContravarianceExampleSpec extends FunSuite {
   test("Contravariance example") {
+
     /**
       * class that knows how to print out some type A
       */
@@ -69,11 +70,13 @@ class ContravarianceExampleSpec extends FunSuite {
 }
 
 class InvarianceExampleSpec extends FunSuite {
+
   /**
     * Generic classes in Scala are invariant by default.
     * This means that they are neither covariant nor contravariant.
     */
   test("Invariance example") {
+
     /**
       * Container class is invariant.
       * A Container[Cat] is not a Container[Animal], nor is the reverse true.
