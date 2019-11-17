@@ -6,5 +6,4 @@ jobs:
     - stage: "Tests"
       name: "unit"
       script: |
-        docker-compose run --rm app sbt test
         docker-compose -f docker-compose.yml run --rm app sbt test
