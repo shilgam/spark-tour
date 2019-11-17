@@ -6,7 +6,7 @@ import org.scalatest.FlatSpec
 
 // Defining a generic class
 class Stack[A] {
-  private var elements: List[A] = Nil
+  private var elements: List[A] = List.empty[A]
   def push(x: A) { elements = x :: elements }
   def peek: A = elements.head
   def pop(): A = {
