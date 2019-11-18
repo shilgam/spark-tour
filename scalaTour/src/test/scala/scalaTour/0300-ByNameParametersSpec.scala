@@ -8,13 +8,13 @@ class ByNameParametersExampleSpec extends FlatSpec {
 
   def whileLoop(condition: => Boolean)(body: => Unit): Unit =
     if (condition) {
+
       /** If the condition is false, the body is never evaluated
         * because we used by-name parameter
         */
       body
       whileLoop(condition)(body)
     }
-
 
   "By-name parameters" should "not evaluated if they aren’t used in the function body" in {
 
