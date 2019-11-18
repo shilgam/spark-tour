@@ -14,16 +14,24 @@
 
         docker-compose build
 
-1. Run bash interactive session
+1. Run Scala interactive shell session
 
-        docker-compose run --rm app bash
+        docker-compose run --rm app sbt console
 
 
 ### Run test suite
 
-1. Run unit tests:
+- all tests
 
-        docker-compose run --rm app sbt test
+      docker-compose run --rm app sbt test
+
+- specific test
+
+      # 1) run sbt shell
+      docker-compose run --rm app sbt console
+
+      # 2) run specific test by class name
+      testOnly BasicExampleSpec
 
 ## Additional info
 
