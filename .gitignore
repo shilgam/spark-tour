@@ -8,3 +8,6 @@ project/
 # Metals (Scala lang server) stuff
 .metals/
 .bloop/
+
+# other stuff
+.idea/
