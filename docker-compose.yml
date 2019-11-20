@@ -1,9 +1,5 @@
 version: '3.2'
+
 services:
   app:
     build: ./sparkTour
-    # volumes:
-    #   # sync source files
-    #   - ./:/usr/src/app/
-    #   # data vol to store cache
-    #   - /root/.cache
