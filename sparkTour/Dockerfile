@@ -1,6 +1,6 @@
 FROM hseeberger/scala-sbt:8u212_1.2.8_2.12.8
 
-ARG APP_PATH=/usr/src/app/scalatesttutorial
+ARG APP_PATH=/usr/src/app/sparkTour
 WORKDIR $APP_PATH
 
 # install dependencies
