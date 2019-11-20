@@ -1,4 +1,6 @@
-# scala-tour
+# spark-tour
+
+[![Build Status](https://travis-ci.com/shilgam/spark-tour.svg?branch=master)](https://travis-ci.com/shilgam/spark-tour)
 
 ## Prerequisites
 
@@ -12,18 +14,13 @@
 
         docker-compose build
 
-1. Run bash interactive session
+1. Run Scala interactive shell session
 
-        docker-compose run --rm app bash
+        docker-compose run --rm app sbt console
 
 
 ### Run test suite
 
-1. Run unit tests:
+1. Run tests:
 
         docker-compose run --rm app sbt test
-
-## Additional info
-
-* [A Scala linter](https://atom.io/packages/linter-scalastyle) for Atom Linter using scalastyle
-* [Scalafmt code formatter](https://scalameta.org/scalafmt/)
