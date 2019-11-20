@@ -4,7 +4,9 @@ classes/
 target/
 project/
 
-
 # Metals (Scala lang server) stuff
 .metals/
 .bloop/
+
+# other
+.idea/
