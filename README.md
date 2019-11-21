@@ -24,3 +24,8 @@
 1. Run tests:
 
         docker-compose run --rm app sbt test
+
+
+### ADD info
+
+* build.sbt: how to add spark deps: https://stackoverflow.com/a/37958371
