@@ -1,4 +1,4 @@
-FROM vletal/scala-sbt:scala-2.11.11-sbt-0.13.16-python-3
+FROM hseeberger/scala-sbt:8u222_1.3.3_2.12.10
 
 ARG APP_PATH=/usr/src/app/
 WORKDIR $APP_PATH
