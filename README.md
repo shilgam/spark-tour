@@ -14,13 +14,20 @@
 
         docker-compose build
 
-1. Run Scala interactive shell session
+1. Run app
 
-        docker-compose run --rm app sbt console
+        docker-compose run --rm app sbt run
 
 
 ### Run test suite
 
-1. Run tests:
+1. Run tests
 
         docker-compose run --rm app sbt test
+
+
+### Run interactive shell session
+
+1. Run interactive shell session
+
+        docker-compose run --rm app sbt console

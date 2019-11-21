@@ -1,6 +1,6 @@
-FROM hseeberger/scala-sbt:8u212_1.2.8_2.12.8
+FROM vletal/scala-sbt:scala-2.11.11-sbt-0.13.16-python-3
 
-ARG APP_PATH=/usr/src/app/sparkTour
+ARG APP_PATH=/usr/src/app/
 WORKDIR $APP_PATH
 
 # install dependencies

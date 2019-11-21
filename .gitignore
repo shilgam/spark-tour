@@ -2,7 +2,6 @@ classes/
 
 # sbt stuff
 target/
-project/
 
 # Metals (Scala lang server) stuff
 .metals/
