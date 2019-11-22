@@ -9,10 +9,10 @@ object SimpleApp extends App {
       .getOrCreate()
 
     val logData = spark.read.textFile(pathToFile).cache()
-
     println(logData.show(numRows = 100, truncate = 150))
 
-    val numOfOccurrences = logData.filter(line => line.contains(substring)).count()
+    val numOfOccurrences =
+      logData.filter(line => line.contains(substring)).count()
 
     val result = s"Lines with $substring: $numOfOccurrences"
 

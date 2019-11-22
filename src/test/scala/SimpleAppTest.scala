@@ -1,4 +1,3 @@
-import org.apache.spark.sql.SparkSession
 import org.scalatest.FunSuite
 
 class SimpleAppTest extends FunSuite {
