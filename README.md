@@ -24,10 +24,3 @@
 1. Run tests
 
         docker-compose run --rm app sbt test
-
-
-### Run interactive shell session
-
-1. Run interactive shell session
-
-        docker-compose run --rm app sbt console

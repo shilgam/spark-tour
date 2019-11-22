@@ -4,6 +4,6 @@ services:
   app:
     volumes:
       # sync source files
-      - ./:/usr/src/app/
+      - ./src/:/usr/src/app/src
       ## data vol to store cache
       #- /root/.cache

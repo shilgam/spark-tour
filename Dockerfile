@@ -1,4 +1,4 @@
-FROM hseeberger/scala-sbt:8u222_1.3.3_2.12.10
+FROM spikerlabs/scala-sbt:scala-2.11.12-sbt-1.2.6
 
 ARG APP_PATH=/usr/src/app/
 WORKDIR $APP_PATH

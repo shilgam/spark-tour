@@ -2,9 +2,14 @@ lazy val root = (project in file("."))
   .settings(
     name := "spark-tour",
     organization := "com.example",
-    scalaVersion := "2.12.10"
+    scalaVersion := "2.11.12"
   )
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
+val sparkVersion = "2.4.4"
 
-mainClass in (Compile, run) := Some("CubeCalculator")
+libraryDependencies ++= Seq(
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "org.scalatest" %% "scalatest" % "3.0.8" % Test
+)
+
+mainClass in (Compile, run) := Some("SimpleApp")
