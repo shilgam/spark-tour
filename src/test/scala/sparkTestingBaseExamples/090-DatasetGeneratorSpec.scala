@@ -2,18 +2,8 @@
   * 'DatasetGenerator' provides an easy way to generate arbitrary Datasets,
   * to be able to check any property.
   */
-import com.holdenkarau.spark.testing.{
-  DataframeGenerator,
-  DatasetGenerator,
-  SharedSparkContext
-}
+import com.holdenkarau.spark.testing.{DatasetGenerator, SharedSparkContext}
 import org.apache.spark.sql.SQLContext
-import org.apache.spark.sql.types.{
-  IntegerType,
-  StringType,
-  StructField,
-  StructType
-}
 import org.scalacheck.Arbitrary
 import org.scalatest.FunSpec
 import org.scalatestplus.scalacheck.Checkers
