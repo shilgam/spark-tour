@@ -1,3 +1,6 @@
+/**
+  * Provides SparkContext to be used in testing
+  */
 import com.holdenkarau.spark.testing.SharedSparkContext
 import org.scalatest.FunSuite
 
