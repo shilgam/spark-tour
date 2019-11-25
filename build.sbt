@@ -15,3 +15,13 @@ libraryDependencies ++= Seq(
 
 mainClass in (Compile, run) := Some("SimpleApp")
 parallelExecution in ThisBuild := false
+
+// Use sbt console as spark-shell
+initialCommands in console := s"""
+val conf = new org.apache.spark.SparkConf()
+  .setMaster("local[*]")
+  .setAppName("SparkExample")
+  .set("spark.driver.host", "localhost")
+val sc = new org.apache.spark.SparkContext(conf)
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+"""

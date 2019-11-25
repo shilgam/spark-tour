@@ -24,3 +24,12 @@
 1. Run tests
 
         docker-compose run --rm app sbt test
+
+
+### Debug
+
+1.  Run `spark-shell`
+
+        docker-compose run --rm app sbt console
+
+1. View launched Spark Web UI: http://localhost:4040

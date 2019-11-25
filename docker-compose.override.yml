@@ -7,3 +7,5 @@ services:
       - ./src/:/usr/src/app/src
       ## data vol to store cache
       #- /root/.cache
+    ports:
+      - "4040:4040"
