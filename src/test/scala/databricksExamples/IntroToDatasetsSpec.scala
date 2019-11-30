@@ -14,13 +14,21 @@ class IntroToDataSetsSpec extends FunSpec with DataFrameSuiteBase {
     it("allows to create using toDS()") {
       val data = Seq(Person("Andy", 1), Person("Vlad", 2))
       val caseClassDS = data.toDS()
+
+      // caseClassDS.printSchema()
+      /** root
+        * |-- name: string (nullable = true)
+        * |-- age: long (nullable = false)
+        */
       // caseClassDS.show()
-      // +----+---+
-      // |name|age|
-      // +----+---+
-      // |Andy|  1|
-      // |Vlad|  2|
-      // +----+---+
+      /** +----+---+
+        * |name|age|
+        * +----+---+
+        * |Andy|  1|
+        * |Vlad|  2|
+        * +----+---+
+        */
+      //
     }
   }
 
@@ -31,14 +39,6 @@ class IntroToDataSetsSpec extends FunSpec with DataFrameSuiteBase {
       val peopleDF = rdd.toDF("name", "age")
 
       val peopleDS = peopleDF.as[Person]
-      // peopleDS.show()
-      // +----+---+
-      // |name|age|
-      // +----+---+
-      // |Andy|  1|
-      // |Vlad|  2|
-      // +----+---+
     }
   }
 }
-
