@@ -36,9 +36,12 @@ class IntroToDataSetsSpec extends FunSpec with DataFrameSuiteBase {
     it("allows to convert") {
       val data = Seq(("Andy", 1), ("Vlad", 2))
       val rdd = sc.parallelize(data)
-      val peopleDF = rdd.toDF("name", "age")
+      val df = rdd.toDF("name", "age")
 
-      val peopleDS = peopleDF.as[Person]
+      val peopleDS = df.as[Person]
+
+      val people = peopleDS.collect.toList
+      assert(people === List(Person("Andy", 1), Person("Vlad", 2)))
     }
   }
 }

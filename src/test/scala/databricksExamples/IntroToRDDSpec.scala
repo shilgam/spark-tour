@@ -11,10 +11,11 @@ class IntroToRDDSpec extends FunSpec with DataFrameSuiteBase {
       /** (Andy,1)
         * (Vlad,2)
         */
-      val namesRdd = rdd.map(tuple => tuple._1)
-      val namesList = namesRdd.collect.toList
 
-      assert(namesList === List("Andy", "Vlad"))
+      val restoredRdd = rdd.map(r => (r._1, r._2))
+      val restored = restoredRdd.collect.toList
+
+      assert(restored === data)
     }
   }
 }

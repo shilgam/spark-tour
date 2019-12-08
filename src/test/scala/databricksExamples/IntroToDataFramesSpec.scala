@@ -15,22 +15,21 @@ class IntroToDataFramesSpec extends FunSpec with DataFrameSuiteBase {
   import sqlContext.implicits._
 
   describe("Create Spark DataFrame") {
-    val columns = Seq("language", "users_count")
     val data = Seq(("Java", 1), ("Python", 2), ("Scala", 3))
 
     describe("(from RDD)") {
       lazy val rdd = sc.parallelize(data)
 
       it("allows to create using toDF()") {
-        val dfFromRDD1 =
+        val df =
           rdd.toDF("language", "users_count")
 
-        // dfFromRDD1.printSchema()
+        // df.printSchema()
         /** root
           * |-- language: string (nullable = true)
           * |-- users_count: integer (nullable = false)
           */
-        // dfFromRDD1.show(false)
+        // df.show(false)
         /**
           * +--------+-----------+
           * |language|users_count|
@@ -40,17 +39,20 @@ class IntroToDataFramesSpec extends FunSpec with DataFrameSuiteBase {
           * |Scala   |3          |
           * +--------+-----------+
           */
-        val languages =
-          dfFromRDD1.select("language").map(_.getString(0)).collect.toList
-        assert(languages === List("Java", "Python", "Scala"))
+        val restoredDF = df.map(r => (r.getAs[String](0), r.getAs[Int](1)))
+
+        val restored = restoredDF.collect.toList
+
+        assert(restored === data)
       }
 
       it("allows to create using createDataFrame() from SparkSession") {
+        val columns = Seq("language", "users_count")
         val dfFromRDD2 = spark.createDataFrame(rdd).toDF(columns: _*)
 
-        val languages =
+        val restored =
           dfFromRDD2.select("language").map(_.getString(0)).collect.toList
-        assert(languages === List("Java", "Python", "Scala"))
+        assert(restored === List("Java", "Python", "Scala"))
       }
 
       it("allows to create using createDataFrame() with the Row type") {
@@ -67,29 +69,30 @@ class IntroToDataFramesSpec extends FunSpec with DataFrameSuiteBase {
         val rowRDD = rdd.map(attributes => Row(attributes._1, attributes._2))
         val dfFromRDD3 = spark.createDataFrame(rowRDD, schema)
 
-        val languages =
+        val restored =
           dfFromRDD3.select("language").map(_.getString(0)).collect.toList
-        assert(languages === List("Java", "Python", "Scala"))
+        assert(restored === List("Java", "Python", "Scala"))
       }
     }
 
-    describe("(from List and Seq Collection)") {
+    describe("(from List or Seq Collection)") {
       it("allows to create using toDF()") {
-        val dfFromData1 = data.toDF()
+        val df = data.toDF()
 
-        val languages =
-          dfFromData1.select("_1").map(_.getString(0)).collect.toList
+        val restoredDF = df.map(r => (r.getAs[String](0), r.getAs[Int](1)))
+        val restored = restoredDF.collect.toList
 
-        assert(languages === List("Java", "Python", "Scala"))
+        assert(restored === data)
       }
 
       it("allows to create using createDataFrame() from SparkSession") {
-        val dfFromRDD2 = spark.createDataFrame(data).toDF(columns: _*)
+        val columns = Seq("language", "users_count")
+        val df = spark.createDataFrame(data).toDF(columns: _*)
 
-        val languages =
-          dfFromRDD2.select("language").map(_.getString(0)).collect.toList
+        val restoredDF = df.map(r => (r.getAs[String](0), r.getAs[Int](1)))
+        val restored = restoredDF.collect.toList
 
-        assert(languages === List("Java", "Python", "Scala"))
+        assert(restored === data)
       }
 
       it("allows to create using createDataFrame() with the Row type") {
@@ -104,12 +107,12 @@ class IntroToDataFramesSpec extends FunSpec with DataFrameSuiteBase {
           )
         )
 
-        val dfFromData3 = spark.createDataFrame(rowData, schema)
+        val df = spark.createDataFrame(rowData, schema)
 
-        val languages =
-          dfFromData3.select("language").map(_.getString(0)).collect.toList
+        val restoredDF = df.map(r => (r.getAs[String](0), r.getAs[Int](1)))
+        val restored = restoredDF.collect.toList
 
-        assert(languages === List("Java", "Python", "Scala"))
+        assert(restored === data)
       }
     }
   }
